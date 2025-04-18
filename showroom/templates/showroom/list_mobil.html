@@ -5,7 +5,7 @@
 
 <!-- Form Pencarian -->
 <form method="get" class="mb-3 d-flex justify-content-center">
-    <input type="text" name="q" class="form-control me-2 w-50" placeholder="Cari merk atau model..." value="{{ query }}">
+    <input type="text" name="q" class="form-control me-2 w-50" placeholder="Cari merk atau model..." {% if query %} value="{{query}}"{%endif%}>
     <button type="submit" class="btn btn-primary me-2">Cari</button>
     <a href="{% url 'list_mobil' %}" class="btn btn-secondary">Reset</a>
 </form>

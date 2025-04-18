@@ -13,3 +13,5 @@ media/
 # Environment
 .env
 venv/
+
+/aplikasi_web/

@@ -24,10 +24,12 @@
             <h1>Showroom Mobil</h1>
         </header>
 
+        {% if request.resolver_match.url_name == 'list_mobil' %}
         <nav class="mb-3 text-center">
             <a href="{% url 'list_mobil' %}" class="btn btn-primary">Daftar Mobil</a>
             <a href="{% url 'tambah_mobil' %}" class="btn btn-success">Tambah Mobil</a>
         </nav>
+        {% endif %}
 
         <!-- Content Section -->
         {% block content %}

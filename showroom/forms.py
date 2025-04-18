@@ -1,5 +1,6 @@
 from django import forms
 from .models import Mobil, Service
+from django.forms.widgets import DateInput
 
 class MobilForm(forms.ModelForm):
     class Meta:
@@ -22,3 +23,9 @@ class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
         fields = '__all__'
+        widgets = {
+            'tanggal': DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'deskripsi': forms.Textarea(attrs={'class': 'form-control'}),
+            'biaya': forms.NumberInput(attrs={'class': 'form-control'}),
+            'mobil': forms.Select(attrs={'class': 'form-control'}),
+        }

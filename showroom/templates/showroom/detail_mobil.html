@@ -1,17 +1,18 @@
 {% extends 'showroom/base.html' %}
+{% load humanize %}
 
 {% block content %}
 <div class="card mb-4">
     <div class="card-body">
         <h2 class="card-title text-center">{{ mobil.merk }} {{ mobil.model }} ({{ mobil.tahun }})</h2>
         <ul class="list-group list-group-flush mt-4">
-            <li class="list-group-item">Harga Dasar: <strong>Rp {{ mobil.harga_dasar }}</strong></li>
-            <li class="list-group-item">Pinjaman Bank: <strong>Rp {{ mobil.pinjaman_bank|default:"-" }}</strong></li>
+            <li class="list-group-item">Harga Dasar: <strong>Rp {{ mobil.harga_dasar|intcomma }}</strong></li>
+            <li class="list-group-item">Pinjaman Bank: <strong>Rp {{ mobil.pinjaman_bank|default:"-"|intcomma }}</strong></li>
             <li class="list-group-item">Suku Bunga: <strong>{{ mobil.suku_bunga|default:"-" }}%</strong></li>
-            <li class="list-group-item">Cicilan Bulanan: <strong>Rp {{ mobil.cicilan_bulanan }}</strong></li>
-            <li class="list-group-item">Total Biaya Service: <strong>Rp {{ mobil.total_biaya_service }}</strong></li>
+            <li class="list-group-item">Cicilan Bulanan: <strong>Rp {{ mobil.cicilan_bulanan|intcomma }}</strong></li>
+            <li class="list-group-item">Total Biaya Service: <strong>Rp {{ mobil.total_biaya_service|intcomma }}</strong></li>
             <li class="list-group-item bg-light">
-                <strong>HPP (Harga Pokok Penjualan): Rp {{ mobil.hpp }}</strong>
+                <strong>HPP (Harga Pokok Penjualan): Rp {{ mobil.hpp|intcomma }}</strong>
             </li>
         </ul>
     </div>
@@ -23,7 +24,7 @@
     <ul class="list-group mb-4">
         {% for s in services %}
             <li class="list-group-item">
-                <strong>{{ s.tanggal }}</strong> - {{ s.deskripsi }} (Rp {{ s.biaya }})
+                <strong>{{ s.tanggal }}</strong> - {{ s.deskripsi }} (Rp {{ s.biaya|intcomma }})
             </li>
         {% endfor %}
     </ul>
