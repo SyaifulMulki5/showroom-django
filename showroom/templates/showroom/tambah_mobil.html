@@ -1,0 +1,31 @@
+{% extends 'showroom/base.html' %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <h2 class="card-title text-center mb-4">Tambah Mobil</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{% url 'list_mobil' %}" class="btn btn-secondary">Batal</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+[
+    {
+      "merk": "Toyota",
+      "model": "Avanza",
+      "tahun": 2020,
+      "harga_dasar": 250000000.00,
+      "pinjaman_bank": 150000000.00,
+      "suku_bunga": 5.5
+    },
+    {
+      "merk": "Honda",
+      "model": "Civic",
+      "tahun": 2021,
+      "harga_dasar": 350000000.00,
+      "pinjaman_bank": 200000000.00,
+      "suku_bunga": 4.8
+    },
+    {
+      "merk": "Suzuki",
+      "model": "Ertiga",
+      "tahun": 2019,
+      "harga_dasar": 230000000.00,
+      "pinjaman_bank": 120000000.00,
+      "suku_bunga": 6.0
+    },
+    {
+      "merk": "BMW",
+      "model": "X5",
+      "tahun": 2022,
+      "harga_dasar": 1200000000.00,
+      "pinjaman_bank": 800000000.00,
+      "suku_bunga": 4.2
+    },
+    {
+      "merk": "Mercedes-Benz",
+      "model": "A-Class",
+      "tahun": 2023,
+      "harga_dasar": 800000000.00,
+      "pinjaman_bank": 500000000.00,
+      "suku_bunga": 3.5
+    },
+    {
+      "merk": "Nissan",
+      "model": "X-Trail",
+      "tahun": 2020,
+      "harga_dasar": 500000000.00,
+      "pinjaman_bank": 300000000.00,
+      "suku_bunga": 5.0
+    },
+    {
+      "merk": "Ford",
+      "model": "Ranger",
+      "tahun": 2021,
+      "harga_dasar": 700000000.00,
+      "pinjaman_bank": 400000000.00,
+      "suku_bunga": 4.7
+    },
+    {
+      "merk": "Mitsubishi",
+      "model": "Pajero Sport",
+      "tahun": 2022,
+      "harga_dasar": 900000000.00,
+      "pinjaman_bank": 600000000.00,
+      "suku_bunga": 4.0
+    },
+    {
+      "merk": "Hyundai",
+      "model": "Tucson",
+      "tahun": 2021,
+      "harga_dasar": 600000000.00,
+      "pinjaman_bank": 350000000.00,
+      "suku_bunga": 4.5
+    },
+    {
+      "merk": "Kia",
+      "model": "Seltos",
+      "tahun": 2020,
+      "harga_dasar": 400000000.00,
+      "pinjaman_bank": 250000000.00,
+      "suku_bunga": 5.2
+    }
+  ]
+  

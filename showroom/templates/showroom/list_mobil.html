@@ -1,0 +1,51 @@
+{% extends 'showroom/base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">Daftar Mobil</h2>
+
+<!-- Form Pencarian -->
+<form method="get" class="mb-3 d-flex justify-content-center">
+    <input type="text" name="q" class="form-control me-2 w-50" placeholder="Cari merk atau model..." value="{{ query }}">
+    <button type="submit" class="btn btn-primary me-2">Cari</button>
+    <a href="{% url 'list_mobil' %}" class="btn btn-secondary">Reset</a>
+</form>
+
+<!-- Menampilkan hasil pencarian -->
+{% if query %}
+    <p class="text-muted text-center">Hasil pencarian untuk: <strong>{{ query }}</strong></p>
+{% endif %}
+
+<!-- Tabel Data Mobil -->
+<table class="table table-bordered table-striped">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>ID</th>
+            <th>Merk</th>
+            <th>Model</th>
+            <th>Tahun</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if mobil_list %}
+            {% for mobil in mobil_list %}
+            <tr class="text-center align-middle">
+                <td>{{ mobil.id }}</td>
+                <td>{{ mobil.merk }}</td>
+                <td>{{ mobil.model }}</td>
+                <td>{{ mobil.tahun }}</td>
+                <td>
+                    <a href="{% url 'detail_mobil' mobil.id %}" class="btn btn-info btn-sm">Detail</a>
+                    <a href="{% url 'hapus_mobil' mobil.id %}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('Yakin ingin menghapus mobil ini?')">Hapus</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5" class="text-center text-muted">Tidak ada data mobil ditemukan.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

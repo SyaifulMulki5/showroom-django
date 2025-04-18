@@ -1,0 +1,41 @@
+{% extends 'showroom/base.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <h2 class="card-title text-center">{{ mobil.merk }} {{ mobil.model }} ({{ mobil.tahun }})</h2>
+        <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item">Harga Dasar: <strong>Rp {{ mobil.harga_dasar }}</strong></li>
+            <li class="list-group-item">Pinjaman Bank: <strong>Rp {{ mobil.pinjaman_bank|default:"-" }}</strong></li>
+            <li class="list-group-item">Suku Bunga: <strong>{{ mobil.suku_bunga|default:"-" }}%</strong></li>
+            <li class="list-group-item">Cicilan Bulanan: <strong>Rp {{ mobil.cicilan_bulanan }}</strong></li>
+            <li class="list-group-item">Total Biaya Service: <strong>Rp {{ mobil.total_biaya_service }}</strong></li>
+            <li class="list-group-item bg-light">
+                <strong>HPP (Harga Pokok Penjualan): Rp {{ mobil.hpp }}</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Riwayat Service -->
+<h3 class="mb-3">Riwayat Service</h3>
+{% if services %}
+    <ul class="list-group mb-4">
+        {% for s in services %}
+            <li class="list-group-item">
+                <strong>{{ s.tanggal }}</strong> - {{ s.deskripsi }} (Rp {{ s.biaya }})
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">Belum ada data service.</p>
+{% endif %}
+
+<!-- Tombol Aksi -->
+<div class="d-flex gap-2 mt-4">
+    <a href="{% url 'tambah_service' mobil.id %}" class="btn btn-warning">Tambah Service</a>
+    <a href="{% url 'hapus_mobil' mobil.id %}" class="btn btn-danger"
+       onclick="return confirm('Yakin ingin menghapus mobil ini?')">Hapus Mobil</a>
+    <a href="{% url 'list_mobil' %}" class="btn btn-secondary">Kembali ke Daftar Mobil</a>
+</div>
+{% endblock %}
